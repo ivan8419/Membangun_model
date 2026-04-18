@@ -18,7 +18,7 @@ dagshub.init(repo_owner='ivan8419', repo_name='SMSML_Muhammad_Ivan', mlflow=True
 mlflow.set_experiment("Credit_Card_Fraud_Detection_Tuning")
 
 def load_data():
-    dataset_path = "creditcard_preprocessed.csv"
+    dataset_path = "namadataset_preprocessing/creditcard_preprocessed.csv"
     if not os.path.exists(dataset_path):
         raise FileNotFoundError(f"Dataset {dataset_path} not found. Run preprocessing first.")
     df = pd.read_csv(dataset_path)
