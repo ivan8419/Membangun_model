@@ -32,7 +32,6 @@ mlflow.db
 # Large data files
 *.zip
 *.gz
-*.csv
 
 # Environments
 .env
