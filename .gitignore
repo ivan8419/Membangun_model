@@ -27,6 +27,7 @@ wheels/
 # MLflow tracking
 mlruns/
 mlflow.db
+mlflow.db
 
 # Large data files
 *.csv
