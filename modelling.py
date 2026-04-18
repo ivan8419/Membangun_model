@@ -11,6 +11,9 @@ mlflow.sklearn.autolog()
 # Set local tracking URI explicitly just in case
 mlflow.set_tracking_uri("sqlite:///mlflow.db")
 mlflow.set_experiment("Credit_Card_Fraud_Detection")
+os.environ["LOGNAME"] = "ivan"
+os.environ["USER"] = "ivan"
+os.environ["USERNAME"] = "ivan"
 
 def load_data():
     dataset_path = "namadataset_preprocessing/creditcard_preprocessed.csv"
@@ -30,7 +33,11 @@ def train_model():
         model = RandomForestClassifier(n_estimators=100, max_depth=10, random_state=42, class_weight='balanced')
         model.fit(X_train, y_train)
 
+        # Explicitly log model as 'model' folder
+        mlflow.sklearn.log_model(model, "model")
+
         print("Training completed and logged locally via autolog.")
+
 
 if __name__ == "__main__":
     train_model()

@@ -16,6 +16,9 @@ import seaborn as sns
 dagshub.init(repo_owner='ivan8419', repo_name='SMSML_Muhammad_Ivan', mlflow=True)
 
 mlflow.set_experiment("Credit_Card_Fraud_Detection_Tuning")
+os.environ["LOGNAME"] = "ivan"
+os.environ["USER"] = "ivan"
+os.environ["USERNAME"] = "ivan"
 
 def load_data():
     dataset_path = "namadataset_preprocessing/creditcard_preprocessed.csv"
@@ -95,7 +98,7 @@ def train_tuning():
         plt.close()
         mlflow.log_artifact(fi_path)
 
-        mlflow.sklearn.log_model(best_model, "best_random_forest_model")
+        mlflow.sklearn.log_model(best_model, "model")
 
         print("Model Tuning completed. Logged to DagsHub via MLflow.")
         print(f"Best params: {random_search.best_params_}")
